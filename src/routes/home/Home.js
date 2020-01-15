@@ -24,7 +24,7 @@ const Home = () => {
       >
         Search
       </button>
-      { [...text].map(e => <MovieTitle Title={e.Title} imdbID={e.imdbID} /> ) }
+      { [...text].map(e => <MovieTitle Title={e.Title} imdbID={e.imdbID} key={e.imdbID}/> ) }
     </div>
   );
 };

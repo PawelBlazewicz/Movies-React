@@ -1,9 +1,14 @@
 .App {
   text-align: center;
-  min-height: 100hv;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  background: #2886fb38;
 }
 
 .MovieTitle {
   border: solid 1px;
   margin: 25px;
+  max-width: 1000px;
+  background: #2886fb38;
 }
