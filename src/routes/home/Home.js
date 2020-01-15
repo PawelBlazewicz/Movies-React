@@ -1,17 +1,10 @@
 import React, { useState } from 'react';
-//import http from '../../helpers/http.js' 
 import movieServices from '../../services/movieService.js';
-
-// const api = `http://www.omdbapi.com/?`;
-// const key = `apikey=d32d962d`;
-
-// const requestToApi = async search => {
-//   return await http.get(`${api}${key}&s=${search}`);
-// };
+import MovieTitle from '../../components/CustomInput/MovieTitle.js';
 
 const Home = () => {
   const [text, setText] = useState('');
-  const [searchText, setSearchText] = useState('');
+  const [searchText, setSearchText] = useState([]);
 
   return (
     <div>
@@ -24,13 +17,14 @@ const Home = () => {
       <button
         onClick={() => {
           movieServices.searchByName(searchText)
-            .then(result => setText(result.Search[0].Title))
+            .then(result => setText(result))
             .catch(err => console.log(err));
+            console.log(text);
         }}
       >
         Search
       </button>
-      <h1>{text}</h1>
+      { [...text].map(e => <MovieTitle Title={e.Title} imdbID={e.imdbID} /> ) }
     </div>
   );
 };
